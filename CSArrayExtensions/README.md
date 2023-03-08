@@ -23,3 +23,7 @@ foreach (var (index, value) in values.Enumerate())
 0   hello
 1   world
 ```
+
+### Misc
+
+- Found a more robust [IEnumerable extension function on StackOverflow](https://stackoverflow.com/a/45239105) after having already written this extension function.
