@@ -13,15 +13,15 @@ string[] values = {"hello", "world"};
 
 foreach (var (index, value) in values.Enumerate())
 {
-    Console.WriteLine(index.ToString() + "    " + value);
+    Console.WriteLine(index.ToString() + " " + value);
 }
 ```
 
 #### Output
 
 ```
-0    hello
-1    world
+0 hello
+1 world
 ```
 
 ### Misc
