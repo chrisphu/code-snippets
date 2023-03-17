@@ -1,6 +1,6 @@
 # C# array extensions
 
-## Enumerate
+## [Enumerate](Enumerate.cs)
 
 This extension function returns a tuple array where each tuple is respectively the array element index and the original array element. This is intended to mirror the [enumerate function in Python](https://docs.python.org/3/library/functions.html?highlight=enumerate#enumerate).
 
