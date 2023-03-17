@@ -1,3 +1,5 @@
+using System;
+
 public static class ArrayExtensions
 {
     public static (int, T)[] Enumerate<T>(this T[] input)
