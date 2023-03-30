@@ -1,4 +1,4 @@
-# C# array extensions
+# C# code snippets
 
 ## [Enumerate](Enumerate.cs)
 
