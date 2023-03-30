@@ -6,7 +6,7 @@ This extension function returns a tuple array where each tuple contains the arra
 
 ### Example usage
 
-#### Input
+#### Script
 
 ```cs
 string[] values = {"hello", "world"};
@@ -35,7 +35,8 @@ This Unity class sends a signal (UnityEvent) when the selected parameter value h
 
 ### Example usage
 
-#### Input
+#### Script
+
 ```cs
 using UnityEngine;
 using UnityEngine.Events;
