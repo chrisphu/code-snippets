@@ -29,6 +29,30 @@ foreach (var (index, value) in values.Enumerate())
 - This file would actuallly be named `ArrayExtensions.cs` (the class name)
 - Found a more robust [IEnumerable extension function on StackOverflow](https://stackoverflow.com/a/45239105) after having already written this extension function.
 
+## [LocalTransformExtensions](LocalTransformExtensions.cs)
+
+In Unity, properties such as `transform.right` are given in world space. These Unity extension functions allows for an easy way to call their local versions.
+
+### Example usage
+
+#### Script
+
+```cs
+using UnityEngine;
+
+public class ExampleClass : MonoBehaviour
+{
+    void Start()
+    {
+        transform.rotation *= Quaternion.AngleAxis(180.0f, transform.LocalRight());
+    }
+}
+```
+
+### Misc
+
+- Simple answer on converting from world space to a transform's local space was found on [Unity Answers](https://answers.unity.com/questions/316918/local-forward.html)
+
 ## [ParameterDebounce](ParameterDebounce.cs)
 
 This Unity class sends a signal (UnityEvent) when the selected parameter value has changed.
