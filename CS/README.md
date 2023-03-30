@@ -26,4 +26,37 @@ foreach (var (index, value) in values.Enumerate())
 
 ### Misc
 
+- This file would actuallly be named `ArrayExtensions.cs` (the class name)
 - Found a more robust [IEnumerable extension function on StackOverflow](https://stackoverflow.com/a/45239105) after having already written this extension function.
+
+## [ParameterDebounce](ParameterDebounce.cs)
+
+This Unity class sends a signal (UnityEvent) when the selected parameter value has changed.
+
+### Example usage
+
+#### Input
+```cs
+using UnityEngine;
+using UnityEngine.Events;
+
+public class ExampleClass : MonoBehaviour
+{
+    [SerializeField] ParameterDebounce aKeyDebounce;    // parameterType = ParameterType.Bool
+    
+    void Start()
+    {
+        aKeyDebounce.onValueChanged.AddListener(aKeyDebounceTriggered); // Otherwise assigned in inspector
+    }
+    
+    void Update()
+    {
+        aKeyDebounce.boolValue = Input.GetKey(KeyCode.A);
+    }
+    
+    public void aKeyDebounceTriggered()
+    {
+        // ...
+    }
+}
+```
