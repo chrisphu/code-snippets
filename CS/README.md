@@ -64,7 +64,6 @@ This Unity class sends a UnityEvent signal to listeners when the selected parame
 ```cs
 using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 public class ExampleClass : MonoBehaviour
 {
