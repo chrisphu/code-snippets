@@ -55,7 +55,7 @@ public class ExampleClass : MonoBehaviour
 
 ## [ParameterDebounce](ParameterDebounce.cs)
 
-This Unity class sends a UnityEvent signal to listeners when the selected parameter value has changed.
+This Unity class sends a UnityEvent signal to listeners when the selected parameter value has changed. A class inheriting `ParameterDebounce.cs` (ex. `public class BoolDebounce : ParameterDebounce<bool> { }` can be attached as a component.
 
 ### Example usage
 
@@ -67,7 +67,7 @@ using UnityEngine.Events;
 
 public class ExampleClass : MonoBehaviour
 {
-    [SerializeField] private ParameterDebounce _bKeyValueDebounce;   // Assign in editor
+    [SerializeField] private BoolDebounce _bKeyValueDebounce;   // Assign in editor
 
     private void Awake()
     {
@@ -80,7 +80,7 @@ public class ExampleClass : MonoBehaviour
         _bKeyValueDebounce.SetValue(Input.GetKey(KeyCode.B))
         
         // Getting value example
-        bool exampleBool = _bKeyValueDebounce.GetValue<bool>();
+        bool exampleBool = _bKeyValueDebounce.GetValue();
     }
     
     private void BKeyValueChanged()
@@ -92,6 +92,4 @@ public class ExampleClass : MonoBehaviour
 
 ### Misc
 
-- Currently only written for `bool` and `float` types, but easy to expand on
-- Class itself cannot include generic T or else Unity cannot display it in editor
-- `public enum ParameterType` declaration allows for easy dropdown in editor
+- Base generic T class `ParameterDebounce` cannot be attached as component in Unity editor
