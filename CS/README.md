@@ -55,33 +55,44 @@ public class ExampleClass : MonoBehaviour
 
 ## [ParameterDebounce](ParameterDebounce.cs)
 
-This Unity class sends a signal (UnityEvent) when the selected parameter value has changed.
+This Unity class sends a UnityEvent signal to listeners when the selected parameter value has changed.
 
 ### Example usage
 
-#### Script
+#### Listener script
 
 ```cs
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class ExampleClass : MonoBehaviour
 {
-    [SerializeField] ParameterDebounce aKeyDebounce;    // parameterType = ParameterType.Bool
-    
-    void Start()
+    [SerializeField] private ParameterDebounce _bKeyValueDebounce;   // Assign in editor
+
+    private void Awake()
     {
-        aKeyDebounce.onValueChanged.AddListener(aKeyDebounceTriggered); // Otherwise assigned in inspector
+        _bKeyValueDebounce.OnValueChanged.AddListener(BKeyValueChanged);
     }
     
-    void Update()
+    private void Update()
     {
-        aKeyDebounce.boolValue = Input.GetKey(KeyCode.A);
+        // Setting value example
+        _bKeyValueDebounce.SetValue(Input.GetKey(KeyCode.B))
+        
+        // Getting value example
+        bool exampleBool = _bKeyValueDebounce.GetValue<bool>();
     }
     
-    public void aKeyDebounceTriggered()
+    private void BKeyValueChanged()
     {
         // ...
     }
 }
 ```
+
+### Misc
+
+- Currently only written for `bool` and `float` types, but easy to expand on
+- Class itself cannot include generic T or else Unity cannot display it in editor
+- `public enum ParameterType` declaration allows for easy dropdown in editor
