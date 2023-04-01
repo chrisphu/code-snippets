@@ -93,3 +93,5 @@ public class ExampleClass : MonoBehaviour
 ### Misc
 
 - Base generic T class `ParameterDebounce` cannot be attached as component in Unity editor
+- `public UnityEvent OnValueChanged;` can be replaced with `public UnityEvent<T> OnValueChanged;` if needing to send a dynamic signal
+    - `OnValueChanged.Invoke();` then also needs to be replaced with `OnValueChanged.Invoke(Value);`
