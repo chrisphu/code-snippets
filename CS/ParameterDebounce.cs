@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 /// <summary>
 /// Class <c>ParameterDebounce</c> sends UnityEvent signal to listeners when the selected parameter value changes.
@@ -15,39 +16,65 @@ public class ParameterDebounce : MonoBehaviour
     }
 
     [Header("Trigger")]
-    public ParameterType parameterType;
-    public bool boolValue = false;
-    public float floatValue = 0.0f;
+    [SerializeField] private ParameterType _valueType;
+    [SerializeField] private bool _boolValue = false;
+    [SerializeField] private float _floatValue = 0.0f;
 
     [Header("Unity event")]
-    public UnityEvent onValueChanged;
+    public UnityEvent OnValueChanged;
 
-    bool boolDebounce = false;
-    float floatDebounce = 0.0f;
+    private bool _boolDebounce = false;
+    private float _floatDebounce = 0.0f;
 
-    void Start()
+    private void Awake()
     {
-        boolDebounce = boolValue;
-        floatDebounce = floatValue;
+        _boolDebounce = _boolValue;
+        _floatDebounce = _floatValue;
     }
 
-    void Update()
+    private void Update()
     {
-        if (parameterType == ParameterType.Bool)
+        if (_valueType == ParameterType.Bool)
         {
-            if (boolDebounce != boolValue)
+            if (_boolDebounce != _boolValue)
             {
-                boolDebounce = boolValue;
-                onValueChanged.Invoke();
+                _boolDebounce = _boolValue;
+                OnValueChanged.Invoke();
             }
         }
-        else if (parameterType == ParameterType.Float)
+        else if (_valueType == ParameterType.Float)
         {
-            if (floatDebounce != floatValue)
+            if (_floatDebounce != _floatValue)
             {
-                floatDebounce = floatValue;
-                onValueChanged.Invoke();
+                _floatDebounce = _floatValue;
+                OnValueChanged.Invoke();
             }
         }
+    }
+
+    public void SetValue<T>(T value)
+    {
+        if (typeof(T) == typeof(bool))
+        {
+            _boolValue = (bool)Convert.ChangeType(value, typeof(bool));
+        }
+        else if (typeof(T) == typeof(float))
+        {
+            _floatValue = (float)Convert.ChangeType(value, typeof(float));
+        }
+    }
+
+    public T GetValue<T>(Type valueType)
+    {
+        if (valueType == typeof(bool))
+        {
+            return (T)Convert.ChangeType(_boolValue, typeof(T));
+        }
+        else if (valueType == typeof(float))
+        {
+            return (T)Convert.ChangeType(_floatValue, typeof(T));
+        }
+
+        return default;
     }
 }
