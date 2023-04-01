@@ -64,13 +64,13 @@ public class ParameterDebounce : MonoBehaviour
         }
     }
 
-    public T GetValue<T>(Type valueType)
+    public T GetValue<T>()
     {
-        if (valueType == typeof(bool))
+        if (typeof(T) == typeof(bool))
         {
             return (T)Convert.ChangeType(_boolValue, typeof(T));
         }
-        else if (valueType == typeof(float))
+        else if (typeof(T) == typeof(float))
         {
             return (T)Convert.ChangeType(_floatValue, typeof(T));
         }
