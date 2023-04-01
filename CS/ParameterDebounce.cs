@@ -7,6 +7,11 @@ using System;
 /// <summary>
 /// Class <c>ParameterDebounce</c> sends UnityEvent signal to listeners when the selected parameter value changes.
 /// </summary>
+/// <list type="bullet">
+/// <item>
+/// <description>Use <c>public enum ParameterType</c> rather than <c>Type</c> to allow dropdown in Unity editor</description>
+/// </item>
+/// </list>
 public class ParameterDebounce : MonoBehaviour
 {
     public enum ParameterType
@@ -55,7 +60,7 @@ public class ParameterDebounce : MonoBehaviour
     /// <summary>
     /// Void <c>SetValue</c> sets <c>ParameterDebounce</c> value to given value.
     /// </summary>
-    /// <typeparam name="T">Generic type.</typeparam>
+    /// <typeparam name="T"><c>bool float</c></typeparam>
     /// <param name="value">Value of generic type to set <c>ParameterDebounce</c> value to.</param>
     public void SetValue<T>(T value)
     {
@@ -72,7 +77,7 @@ public class ParameterDebounce : MonoBehaviour
     /// <summary>
     /// T <c>GetValue</c> returns <c>ParameterDebounce</c> stored value of given type.
     /// </summary>
-    /// <typeparam name="T">Generic type.</typeparam>
+    /// <typeparam name="T"><c>bool float</c></typeparam>
     public T GetValue<T>()
     {
         if (typeof(T) == typeof(bool))
