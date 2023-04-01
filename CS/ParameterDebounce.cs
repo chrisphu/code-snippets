@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// <c>ParameterDebounce</c> sends a signal when the selected parameter value has changed.
+/// Class <c>ParameterDebounce</c> sends UnityEvent signal to listeners when the selected parameter value changes.
 /// </summary>
 public class ParameterDebounce : MonoBehaviour
 {
