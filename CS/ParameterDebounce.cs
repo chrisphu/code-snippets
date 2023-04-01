@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class ParameterDebounce<T> : MonoBehaviour
 {
     [Header("Initial value")]
-    [SerializeField] private T value;
+    [SerializeField] private T _value;
 
     [Header("Unity event")]
     public UnityEvent OnValueChanged;
@@ -18,38 +18,32 @@ public class ParameterDebounce<T> : MonoBehaviour
 
     private void Awake()
     {
-        _valueDebounce = value;
+        _valueDebounce = _value;
     }
 
     private void Update()
     {
-        if (!EqualityComparer<T>.Default.Equals(_valueDebounce, value))
+        if (!EqualityComparer<T>.Default.Equals(_valueDebounce, _value))
         {
-            _valueDebounce = value;
+            _valueDebounce = _value;
             OnValueChanged.Invoke();
         }
     }
 
     /// <summary>
-    /// Void <c>SetValue</c> sets <c>ParameterDebounce</c> value to given value.
+    /// Void <c>SetValue</c> sets <c>ParameterDebounce</c> _value to given value.
     /// </summary>
-    /// <param name="value">Value to set <c>ParameterDebounce</c> value to.</param>
+    /// <param name="value">Value to set <c>ParameterDebounce</c> _value to.</param>
     public void SetValue(T value)
     {
-        this.value = value;
+        _value = value;
     }
 
     /// <summary>
-    /// T <c>GetValue</c> returns <c>ParameterDebounce</c> value.
+    /// T <c>GetValue</c> returns <c>ParameterDebounce</c> _value.
     /// </summary>
     public T GetValue()
     {
-        return value;
+        return _value;
     }
 }
-
-// Normally in separate script BoolDebounce.cs
-public class BoolDebounce : ParameterDebounce<bool> { }
-
-// Normally in separate script FloatDebounce.cs
-public class FloatDebounce : ParameterDebounce<float> { }
