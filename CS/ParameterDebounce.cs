@@ -8,8 +8,8 @@ using UnityEngine.Events;
 /// </summary>
 public class ParameterDebounce<T> : MonoBehaviour
 {
-    [Header("Initial value")]
-    [SerializeField] private T _value;
+    [Header("Parameter")]
+    public T Value;
 
     [Header("Unity event")]
     public UnityEvent OnValueChanged;
@@ -18,33 +18,16 @@ public class ParameterDebounce<T> : MonoBehaviour
 
     private void Awake()
     {
-        _valueDebounce = _value;
+        _valueDebounce = Value;
     }
 
     private void Update()
     {
-        if (!EqualityComparer<T>.Default.Equals(_valueDebounce, _value))
+        if (!EqualityComparer<T>.Default.Equals(_valueDebounce, Value))
         {
-            _valueDebounce = _value;
+            _valueDebounce = Value;
             OnValueChanged.Invoke();
         }
-    }
-
-    /// <summary>
-    /// Void <c>SetValue</c> sets <c>ParameterDebounce</c> _value to given value.
-    /// </summary>
-    /// <param name="value">Value to set <c>ParameterDebounce</c> _value to.</param>
-    public void SetValue(T value)
-    {
-        _value = value;
-    }
-
-    /// <summary>
-    /// T <c>GetValue</c> returns <c>ParameterDebounce</c> _value.
-    /// </summary>
-    public T GetValue()
-    {
-        return _value;
     }
 }
 
