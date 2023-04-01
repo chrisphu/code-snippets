@@ -77,10 +77,10 @@ public class ExampleClass : MonoBehaviour
     private void Update()
     {
         // Setting value example
-        _bKeyValueDebounce.SetValue(Input.GetKey(KeyCode.B))
+        _bKeyValueDebounce.Value = Input.GetKey(KeyCode.B);
         
         // Getting value example
-        bool exampleBool = _bKeyValueDebounce.GetValue();
+        bool exampleBool = _bKeyValueDebounce.Value;
     }
     
     private void BKeyValueChanged()
