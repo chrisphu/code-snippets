@@ -9,6 +9,9 @@ using System;
 /// </summary>
 /// <list type="bullet">
 /// <item>
+/// <description><c>ParameterDebounce</c> cannot include generic T as Unity cannot display it in editor.</description>
+/// </item>
+/// <item>
 /// <description>Use <c>public enum ParameterType</c> rather than <c>Type</c> to allow dropdown in Unity editor</description>
 /// </item>
 /// </list>
