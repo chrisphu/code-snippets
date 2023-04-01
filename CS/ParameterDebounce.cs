@@ -49,15 +49,7 @@ public class ParameterDebounce<T> : MonoBehaviour
 }
 
 // Normally in separate script BoolDebounce.cs
-// Specifies T as bool so BoolDebounce can be attached as component in Unity editor
-public class BoolDebounce : ParameterDebounce<bool>
-{
-    // ...
-}
+public class BoolDebounce : ParameterDebounce<bool> { }
 
 // Normally in separate script FloatDebounce.cs
-// Specifies T as float so FloatDebounce can be attached as component in Unity editor
-public class FloatDebounce : ParameterDebounce<float>
-{
-    // ...
-}
+public class FloatDebounce : ParameterDebounce<float> { }
