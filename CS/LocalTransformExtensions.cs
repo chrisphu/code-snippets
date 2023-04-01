@@ -1,14 +1,18 @@
 using UnityEngine;
 
 /// <summary>
-/// "Local" vectors such as transform.right are given in world space. <c>LocalTransformExtensions</c> allows for an easy way to call their local versions.
+/// Class <c>LocalTransformExtensions</c> contains easy calls for a transform's local vectors.
 /// </summary>
+/// <list>
+/// <description>Properties such as <c>transform.right</c> return in world space. This creates problems if the transform's parent is rotated.</description>
+/// </list>
 public static class LocalTransformExtensions
 {
     /// <summary>
-    /// <c>Localize</c> converts a given vector from world space to this transform's local space
+    /// Static Vector3 <c>Localize</c> converts a given vector from world space to this transform's local space
     /// </summary>
-    /// <description>Converting world space to local: https://answers.unity.com/questions/316918/local-forward.html</description>
+    /// <description>Converting world space to local: <see href="https://answers.unity.com/questions/316918/local-forward.html"/></description>
+    /// <param name="vector">Vector to convert from world space to local.</param>
     public static Vector3 Localize(this Transform transform, Vector3 vector)
     {
         return transform.worldToLocalMatrix.MultiplyVector(vector);
