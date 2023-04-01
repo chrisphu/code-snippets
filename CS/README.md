@@ -59,7 +59,7 @@ This Unity class sends a UnityEvent signal to listeners when the selected parame
 
 ### Example usage
 
-#### Listener script
+#### Script
 
 ```cs
 using UnityEngine;
