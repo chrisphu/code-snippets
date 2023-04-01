@@ -47,3 +47,9 @@ public class ParameterDebounce<T> : MonoBehaviour
         return _value;
     }
 }
+
+// Normally in its own script BoolDebounce.cs
+public class BoolDebounce : ParameterDebounce<bool> { }
+
+// Normally in its own script FloatDebounce.cs
+public class FloatDebounce : ParameterDebounce<float> { }
