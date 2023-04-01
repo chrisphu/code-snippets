@@ -55,7 +55,7 @@ public class ExampleClass : MonoBehaviour
 
 ## [ParameterDebounce](ParameterDebounce.cs)
 
-This Unity class sends a UnityEvent signal to listeners when the selected parameter value has changed. A class inheriting `ParameterDebounce.cs` (ex. `public class BoolDebounce : ParameterDebounce<bool> { }` can be attached as a component.
+This Unity class sends a UnityEvent signal to listeners when the selected parameter value has changed. A class inheriting `ParameterDebounce.cs` (ex. `public class BoolDebounce : ParameterDebounce<bool> { }`) can be attached as a component.
 
 ### Example usage
 
