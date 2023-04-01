@@ -52,6 +52,11 @@ public class ParameterDebounce : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Void <c>SetValue</c> sets <c>ParameterDebounce</c> value to given value.
+    /// </summary>
+    /// <typeparam name="T">Generic type.</typeparam>
+    /// <param name="value">Value of generic type to set <c>ParameterDebounce</c> value to.</param>
     public void SetValue<T>(T value)
     {
         if (typeof(T) == typeof(bool))
@@ -64,6 +69,10 @@ public class ParameterDebounce : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// T <c>GetValue</c> returns <c>ParameterDebounce</c> stored value of given type.
+    /// </summary>
+    /// <typeparam name="T">Generic type.</typeparam>
     public T GetValue<T>()
     {
         if (typeof(T) == typeof(bool))
